@@ -12,19 +12,20 @@ To add the Pico configuration files:
 # Part 1: Invariants
 
 ## State invariants
-* For all trains, there exists a sensor for which train A corresponds to sensor A.
 
-* For all system states, if approach is high and timer is high, the barrier is never low.
+1. For all system states, if approach is high and timer is high, the barrier is never low.
 
-* For all system states, if barrier high -> alarm high.
+2. For all system states, if barrier high -> alarm high.
 
-* For each train T, approach high <-> depart low.
+3. For each train T, approach high <-> depart low.
 
-* For each train T, depart high <-> approach low.
+4. For each train T, depart high <-> approach low.
 
-* For all train approaches, barrier must go down after 10 seconds.
+5. For all train approaches, barrier must go down after 10 seconds.
 
-* For all train crossings, barrier must stay down.
+6. For all train crossings, barrier must stay down.
+
+7. For all train approaches, alarm must sound.
 
 ## Environment invariants
 * Trains take longer than 10s from detection to crossing.
@@ -32,6 +33,8 @@ To add the Pico configuration files:
 * Trains will never avoid the sensor.
 
 * Setting time to 0 will reset the timer after 10s.
+
+* For all trains, there exists a sensor for which train A corresponds to sensor A.
 
 # Part 2: Varying invariants
 * (ringing, arms_up) -> +nb_approach \
