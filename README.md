@@ -25,7 +25,7 @@ To add the Pico configuration files:
 
 6. For all train crossings, barrier must stay down.
 
-7. For all train approaches, alarm must sound.
+7. For each train approaches <-> alarm sound.
 
 ## Environment invariants
 * Trains take longer than 10s from detection to crossing.
