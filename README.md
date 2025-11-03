@@ -30,5 +30,5 @@ To add the Pico configuration files:
 * Setting time to 0 will reset the timer after 10s.
 
 # Part 2: 
-* (ringing, arms_up) -> +nb_approach 
+* (ringing, arms_up) -> +nb_approach \
     Will not result in any change when north-train approaches.
