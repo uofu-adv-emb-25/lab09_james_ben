@@ -46,14 +46,14 @@ To add the Pico configuration files:
 
 # Part 4: Prove it.
 
-| number | arms_down | alarm_on | northbound_present | southbound_present | north_approach | south_approach | north_depart | south_depart | ringing | safety_hazard |
+| number | arms_down | alarm_on | northbound_present | southbound_present | north_approach | south_approach | north_depart | south_depart | elapsed | safety_hazard |
 |--------|-----------|----------|--------------------|--------------------|----------------|----------------|--------------|--------------|---------|---------------|
-| 0      | 0         | 0        | 0                  | 0                  |                |                |              |              |         |               |
-| 1      | 0         | 0        | 0                  | 1                  |                |                |              |              |         |               |
-| 2      | 0         | 0        | 1                  | 0                  |                |                |              |              |         |               |
-| 3      | 0         | 0        | 1                  | 1                  |                |                |              |              |         |               |
-| 4      | 0         | 1        | 0                  | 0                  |                |                |              |              |         |               |
-| 5      | 0         | 1        | 0                  | 1                  |                |                |              |              |         |               |
+| 0      | 0         | 0        | 0                  | 0                  | 6              | 5              | I4           | I4           | I7      | 0             |
+| 1      | 0         | 0        | 0                  | 1                  | 7              | I4             | I4           | I4           | I7      | 1             |
+| 2      | 0         | 0        | 1                  | 0                  | I4             | 7              | I4           | I4           | I7      | 1             |
+| 3      | 0         | 0        | 1                  | 1                  | I4             | I4             | I6           | I6           | I7      | 1             |
+| 4      | 0         | 1        | 0                  | 0                  | I7             | I7             | I4           | I4           | I7      | 0             |
+| 5      | 0         | 1        | 0                  | 1                  | 7              | I4             | I4           | I6           | 13      | 1             |
 | 6      | 0         | 1        | 1                  | 0                  |                |                |              |              |         |               |
 | 7      | 0         | 1        | 1                  | 1                  |                |                |              |              |         |               |
 | 8      | 1         | 0        | 0                  | 0                  |                |                |              |              |         |               |
