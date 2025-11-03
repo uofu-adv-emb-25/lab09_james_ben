@@ -22,6 +22,10 @@ To add the Pico configuration files:
 
 * For each train T, depart high <-> approach low.
 
+* For all train approaches, barrier must go down after 10 seconds.
+
+* For all train crossings, barrier must stay down.
+
 ## Environment invariants
 * Trains take longer than 10s from detection to crossing.
 
@@ -29,6 +33,35 @@ To add the Pico configuration files:
 
 * Setting time to 0 will reset the timer after 10s.
 
-# Part 2: 
+# Part 2: Varying invariants
 * (ringing, arms_up) -> +nb_approach \
-    Will not result in any change when north-train approaches.
+    Will not result in any change when north-bound train approaches. \
+    FAILS 'For all train crossings, barrier must stay down.' \
+
+# Part 3: Check your work
+* If we get to (bound-depart) from north_approach, no way to exit (bound-depart) aside from timer signal (could lead to no alarm or barrier when new train approaching). -> FIXED
+
+# Part 4: Prove it.
+
+| number | arms_down | alarm_on | northbound_present | southbound_present | north_approach | south_approach | north_depart | south_depart | ringing | safety_hazard |
+|--------|-----------|----------|--------------------|--------------------|----------------|----------------|--------------|--------------|---------|---------------|
+| 0      | 0         | 0        | 0                  | 0                  |                |                |              |              |         |               |
+| 1      | 0         | 0        | 0                  | 1                  |                |                |              |              |         |               |
+| 2      | 0         | 0        | 1                  | 0                  |                |                |              |              |         |               |
+| 3      | 0         | 0        | 1                  | 1                  |                |                |              |              |         |               |
+| 4      | 0         | 1        | 0                  | 0                  |                |                |              |              |         |               |
+| 5      | 0         | 1        | 0                  | 1                  |                |                |              |              |         |               |
+| 6      | 0         | 1        | 1                  | 0                  |                |                |              |              |         |               |
+| 7      | 0         | 1        | 1                  | 1                  |                |                |              |              |         |               |
+| 8      | 1         | 0        | 0                  | 0                  |                |                |              |              |         |               |
+| 9      | 1         | 0        | 0                  | 1                  |                |                |              |              |         |               |
+| 10     | 1         | 0        | 1                  | 0                  |                |                |              |              |         |               |
+| 11     | 1         | 0        | 1                  | 1                  |                |                |              |              |         |               |
+| 12     | 1         | 1        | 0                  | 0                  |                |                |              |              |         |               |
+| 13     | 1         | 1        | 0                  | 1                  |                |                |              |              |         |               |
+| 14     | 1         | 1        | 1                  | 0                  |                |                |              |              |         |               |
+| 15     | 1         | 1        | 1                  | 1                  |                |                |              |              |         |               |
+
+| number | invariant |
+|--------|-----------|
+| 16     |           |
