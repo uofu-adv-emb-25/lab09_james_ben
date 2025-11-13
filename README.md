@@ -61,3 +61,6 @@
 | number | invariant |
 |--------|-----------|
 | 16     |           |
+
+# Part 5: New FSM
+![newFSM](https://github.com/user-attachments/assets/a8e53f46-7a67-441c-8d44-4b5245dad3b1)
