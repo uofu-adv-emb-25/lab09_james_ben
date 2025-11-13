@@ -24,6 +24,7 @@ To add the Pico configuration files:
 5. For all train approaches, barrier must go down after 10 seconds.
 
 6. For all train crossings, barrier must stay down. Barrier will go down after elapsed signal sounds, never before.
+
 7. For each train approaches <-> alarm sound.
 
 ## Environment invariants
@@ -37,9 +38,9 @@ To add the Pico configuration files:
 
 12. A train must have approached before it departs.
 
-13. An approach signal will always precede a depart signal
+13. An approach signal will always precede a depart signal, and vice versa
 
-,, and vise severasac# Part 2: Varying invariants
+# Part 2: Varying invariants
 * (ringing, arms_up) -> +nb_approach \
     Will not result in any change when north-bound train approaches. \
     FAILS 'For all train crossings, barrier must stay down.' \
@@ -63,9 +64,12 @@ To add the Pico configuration files:
 | 9      | 1         | 0        | 0                  | 1                  | I2             | I2             | I2           | I2           | I2      |               |
 | 10     | 1         | 0        | 1                  | 0                  | I2             | I2             | I2           | I2           | I2      |               |
 | 11     | 1         | 0        | 1                  | 1                  | I2             | I2             | I2           | I2           | I2      |               |
-| 12     | 1         | 1        | 0                  | 0                  | I6             | I6             | I6           | I2           | I2    |
-                || 13     | 1         | 1        | 0                  | 1                  | 15             | I4             |                |6           | I6        |               |
-| 14     | 1         | 1        | 1                  | 0                  |                |                | I13          | 4            | 13      |               |
+| 12     | 1         | 1        | 0                  | 0                  | I6             | I6             | I6           | I6           | I6      |               |
+| 13     | 1         | 1        | 0                  | 1                  | 15             | I4             | I13          | 4            | 13      |               |
+| 14     | 1         | 1        | 1                  | 0                  | I13            | 15             | 8            | I13          | 14      |               |
+| 15     | 1         | 1        | 1                  | 1                  | I13            | I13            | 13           | 14           | 15      |               |
+
+
 | 15     | 1         | 1        | 1                  | 1                  | I13            | 15             | 13           | I13          | 14      |               |
 
 | number | invariant |
