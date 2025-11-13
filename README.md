@@ -23,20 +23,23 @@ To add the Pico configuration files:
 
 5. For all train approaches, barrier must go down after 10 seconds.
 
-6. For all train crossings, barrier must stay down.
-
+6. For all train crossings, barrier must stay down. Barrier will go down after elapsed signal sounds, never before.
 7. For each train approaches <-> alarm sound.
 
 ## Environment invariants
-* Trains take longer than 10s from detection to crossing.
+8. Trains take longer than 10s from detection to crossing.
 
-* Trains will never avoid the sensor.
+9. Trains will never avoid the sensor.
 
-* Setting time to 0 will reset the timer after 10s.
+10. Setting time to 0 will reset the timer after 10s.
 
-* For all trains, there exists a sensor for which train A corresponds to sensor A.
+11. For all trains, there exists a sensor for which train A corresponds to sensor A.
 
-# Part 2: Varying invariants
+12. A train must have approached before it departs.
+
+13. An approach signal will always precede a depart signal
+
+,, and vise severasac# Part 2: Varying invariants
 * (ringing, arms_up) -> +nb_approach \
     Will not result in any change when north-bound train approaches. \
     FAILS 'For all train crossings, barrier must stay down.' \
@@ -54,16 +57,16 @@ To add the Pico configuration files:
 | 3      | 0         | 0        | 1                  | 1                  | I4             | I4             | I6           | I6           | I7      | 1             |
 | 4      | 0         | 1        | 0                  | 0                  | I7             | I7             | I4           | I4           | I7      | 0             |
 | 5      | 0         | 1        | 0                  | 1                  | 7              | I4             | I4           | I6           | 13      | 1             |
-| 6      | 0         | 1        | 1                  | 0                  |                |                |              |              |         |               |
-| 7      | 0         | 1        | 1                  | 1                  |                |                |              |              |         |               |
-| 8      | 1         | 0        | 0                  | 0                  |                |                |              |              |         |               |
-| 9      | 1         | 0        | 0                  | 1                  |                |                |              |              |         |               |
-| 10     | 1         | 0        | 1                  | 0                  |                |                |              |              |         |               |
-| 11     | 1         | 0        | 1                  | 1                  |                |                |              |              |         |               |
-| 12     | 1         | 1        | 0                  | 0                  |                |                |              |              |         |               |
-| 13     | 1         | 1        | 0                  | 1                  |                |                |              |              |         |               |
-| 14     | 1         | 1        | 1                  | 0                  |                |                |              |              |         |               |
-| 15     | 1         | 1        | 1                  | 1                  |                |                |              |              |         |               |
+| 6      | 0         | 1        | 1                  | 0                  | I13            | 7              | I8           | I13          | 14      |               |
+| 7      | 0         | 1        | 1                  | 1                  | I13            | I13            | I5           | I5           | 15      |               |
+| 8      | 1         | 0        | 0                  | 0                  | I2             | I2             | I2           | I2           | I2      |               |
+| 9      | 1         | 0        | 0                  | 1                  | I2             | I2             | I2           | I2           | I2      |               |
+| 10     | 1         | 0        | 1                  | 0                  | I2             | I2             | I2           | I2           | I2      |               |
+| 11     | 1         | 0        | 1                  | 1                  | I2             | I2             | I2           | I2           | I2      |               |
+| 12     | 1         | 1        | 0                  | 0                  | I6             | I6             | I6           | I2           | I2    |
+                || 13     | 1         | 1        | 0                  | 1                  | 15             | I4             |                |6           | I6        |               |
+| 14     | 1         | 1        | 1                  | 0                  |                |                | I13          | 4            | 13      |               |
+| 15     | 1         | 1        | 1                  | 1                  | I13            | 15             | 13           | I13          | 14      |               |
 
 | number | invariant |
 |--------|-----------|
